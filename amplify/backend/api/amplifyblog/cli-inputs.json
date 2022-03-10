@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "amplifyblog",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/san/Work/Javascript/amplify/amplify-blog/amplify/backend/api/amplifyblog/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}
