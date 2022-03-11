@@ -2,11 +2,6 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-enum SortDirection {
-  ASC
-  DESC
-}
-
 type Blog @model {
   id: ID!
   name: String!
@@ -33,18 +28,29 @@ type Comment @model {
   content: String!
 }
 
-# enum BlogSortField {
-#   id
-#   name
-#   createdAt
-#   updatedAt
-# }
+enum SortDirection {
+  ASC
+  DESC
+}
 
-# input BlogSortInput {
-#   field: BlogSortField,
-#   sortDirection: SortDirection
-# }
+enum BlogsSortField {
+  id
+  name
+  createdAt
+  updatedAt
+}
 
-# type Query {
-#   blogsSorted(sort: BlogSortInput!): [Blog] @function(name: "blogsSorted-${env}")
-# }
+input BlogsSortInput {
+  field: BlogsSortField!
+  sortDirection: SortDirection!
+}
+
+type BlogsSortQuery {
+  items: [Blog]
+  nextToken: String
+  scannedCount: Int
+}
+
+type Query {
+  blogsSort(limit: Int, sort: BlogsSortInput!, nextToken: String): BlogsSortQuery @function(name: "blogsSort-${env}")
+}

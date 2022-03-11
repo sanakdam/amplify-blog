@@ -173,6 +173,32 @@ export type DeleteCommentInput = {
   id: string,
 };
 
+export type BlogsSortInput = {
+  field: BlogsSortField,
+  sortDirection: SortDirection,
+};
+
+export enum BlogsSortField {
+  id = "id",
+  name = "name",
+  createdAt = "createdAt",
+  updatedAt = "updatedAt",
+}
+
+
+export enum SortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
+export type BlogsSortQuery = {
+  __typename: "BlogsSortQuery",
+  items?:  Array<Blog | null > | null,
+  nextToken?: string | null,
+  scannedCount?: number | null,
+};
+
 export type ModelBlogFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
@@ -532,6 +558,32 @@ export type DeleteCommentMutation = {
     createdAt: string,
     updatedAt: string,
     postCommentsId?: string | null,
+  } | null,
+};
+
+export type BlogsSortQueryVariables = {
+  limit?: number | null,
+  sort: BlogsSortInput,
+  nextToken?: string | null,
+};
+
+export type BlogsSortQuery = {
+  blogsSort?:  {
+    __typename: "BlogsSortQuery",
+    items?:  Array< {
+      __typename: "Blog",
+      id: string,
+      name: string,
+      type?: string | null,
+      posts?:  {
+        __typename: "ModelPostConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+    scannedCount?: number | null,
   } | null,
 };
 

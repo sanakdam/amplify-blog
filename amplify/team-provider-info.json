@@ -10,6 +10,15 @@
       "StackName": "amplify-amplifyblog-dev-173456",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:949714768446:stack/amplify-amplifyblog-dev-173456/c05a7880-a05d-11ec-8f9a-0abb85f3725a",
       "AmplifyAppId": "d37j54a2d3lrw8"
+    },
+    "categories": {
+      "function": {
+        "blogsSort": {
+          "blogtable": "Blog-f73g7f2mdfewneutvhymuvckma-dev",
+          "deploymentBucketName": "amplify-amplifyblog-dev-173456-deployment",
+          "s3Key": "amplify-builds/blogsSort-394133706e546f377975-build.zip"
+        }
+      }
     }
   }
 }

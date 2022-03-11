@@ -2,6 +2,24 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const blogsSort = /* GraphQL */ `
+  query BlogsSort($limit: Int, $sort: BlogsSortInput!, $nextToken: String) {
+    blogsSort(limit: $limit, sort: $sort, nextToken: $nextToken) {
+      items {
+        id
+        name
+        type
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+      scannedCount
+    }
+  }
+`;
 export const getBlog = /* GraphQL */ `
   query GetBlog($id: ID!) {
     getBlog(id: $id) {
